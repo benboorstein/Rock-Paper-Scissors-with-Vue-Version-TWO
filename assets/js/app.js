@@ -6,14 +6,25 @@ const App = {
                 'Paper': 'Scissors',
                 'Scissors': 'Rock'
             },
-            result: '', // results: 'You win', 'Computer wins', 'Tie game'
-            userChoice: '' // the tool the user clicks
+            result: 'Please play!',
+            userChoice: '',
+            compChoice: ''
         }
     },
-    computed: {
-        compChoice() {
+    methods: {
+        setText(key) {
+            this.userChoice = key
+
             let toolsKeysArr = Object.keys(this.tools)
-            return toolsKeysArr[Math.floor(Math.random() * toolsKeysArr.length)]
+            this.compChoice = toolsKeysArr[Math.floor(Math.random() * toolsKeysArr.length)]
+
+            if (this.userChoice === this.tools[this.compChoice]) {
+                this.result = 'You win'
+            } else if (this.compChoice === this.tools[this.userChoice]) {
+                this.result = 'Computer wins'
+            } else {
+                this.result = 'Tie game'
+            }
         }
     }
 }

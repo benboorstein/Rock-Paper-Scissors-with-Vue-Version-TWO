@@ -16,8 +16,8 @@
             </header>
             <main>
                 <ul>
-                    <li :id="prop.toLowerCase()" v-for="(val, prop) in tools">
-                        <button>{{ prop }}</button>
+                    <li :id="prop.toLowerCase()" v-for="(val, prop) in tools" :key="prop">
+                        <button @click="setText(prop)">{{ prop }}</button> <!-- Note that I could have passed in '$event' instead of 'prop', and in the function definition (in the JS) passed in 'event' instead of 'key', and then set 'this.userChoice' to 'event.target.textContent' instead of 'key'. -->
                     </li>
                 </ul>
                 <p id="result">{{ result }}</p>
