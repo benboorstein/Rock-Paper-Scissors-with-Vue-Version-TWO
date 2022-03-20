@@ -7,6 +7,10 @@ body {
     background-color: antiquewhite;
 }
 
+[v-cloak] {
+    display: none;
+}
+
 h1 {
     font-size: 25px;
     text-align: center;
